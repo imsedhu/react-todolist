@@ -35,6 +35,8 @@ h1{
   color: white;
   cursor: pointer;
   transition: all .4s;
+  display: grid;
+  place-items: center;
 }
 
 .input-container > button:hover{
@@ -60,10 +62,12 @@ h1{
   background-color: white;
   border-radius: 10px;
   padding: 5px 8px;
+  margin-bottom: 10px;
 }
 
 .todo > p{
   text-transform: capitalize;
+  font-weight: bold;
 }
 .actions > button{
  background-color: rgb(237, 19, 19);

@@ -1,32 +1,33 @@
-
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import InputContainer from "./component/InputContainer";
+import TodoContainer from "./component/TodoContainer";
 
 function App() {
-  
+  const [inputval, setInputval] = useState('');
+  const [todos, setTodos] = useState([])
+
+  function inputTodo(e){
+    setInputval(e.target.value)
+  }
+
+  function addTodo(){
+    if(inputval!=''){
+      setTodos((prevTodos) => [...prevTodos, inputval])
+      setInputval('')
+    }
+  }
+
 
   return (
     <>
       <main>
         <h1>To Do List</h1>
-
-        <div className="input-container">
-          <input type="text"  id="task" placeholder='Enter Your Task Here..' />
-          <button>+</button>
-        </div>
-
-        <div className="container">
-          <div className="todo">
-            <p>go to the gym</p>
-            <div className="actions">
-              <input type="checkbox" id="" />
-              <button>Delete</button>
-            </div>
-          </div>
-
-        </div>
+        <InputContainer inputval={inputval} inputTodo={inputTodo} addTodo={addTodo} />
+        <TodoContainer todos={todos}/>
       </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
