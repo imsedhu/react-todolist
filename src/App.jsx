@@ -18,13 +18,17 @@ function App() {
     }
   }
 
-
+  function delTodo(todoIndex){
+    setTodos((prevTodos) => prevTodos.filter((prevTodos, prevTodosIndex)=>{
+      return prevTodosIndex!= todoIndex;
+    }))
+  }
   return (
     <>
       <main>
         <h1>To Do List</h1>
         <InputContainer inputval={inputval} inputTodo={inputTodo} addTodo={addTodo} />
-        <TodoContainer todos={todos}/>
+        <TodoContainer todos={todos} delTodo={delTodo}/>
       </main>
     </>
   );
